@@ -1,6 +1,17 @@
 import type { NavItem } from "@/types";
 
 /**
+ * Public address of the site, used for absolute links in social-sharing tags, the sitemap and robots.txt.
+ * Set NEXT_PUBLIC_SITE_URL (e.g. https://yourdomain.com) on the host; failing that, use the address the host provides.
+ */
+function siteUrl() {
+  const e = process.env;
+  const host = e.VERCEL_PROJECT_PRODUCTION_URL ?? e.VERCEL_URL;
+  const url = e.NEXT_PUBLIC_SITE_URL || (host ? `https://${host}` : e.URL || e.DEPLOY_PRIME_URL) || "http://localhost:3000";
+  return url.replace(/\/+$/, "");
+}
+
+/**
  * Central business configuration. Replace the placeholder values below with
  * real details; every component reads from here.
  */
@@ -10,7 +21,7 @@ export const site = {
   tagline: "Ocean fishing adventures from Mirissa, Sri Lanka",
   description:
     "Deep-sea and coastal fishing adventures from Mirissa, Sri Lanka. Join a friendly local team for an unforgettable day on the Indian Ocean.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  url: siteUrl(),
   location: "Mirissa, Sri Lanka",
   contact: {
     // TODO: replace with real details
