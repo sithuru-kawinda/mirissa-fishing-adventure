@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-navy: #0f2a1d;
+  --color-navy-800: #1a3d2b;
+  --color-ocean: #2f6b47;
+  --color-ocean-light: #4a8c64;
+  --color-turquoise: #6fcf8f;
+  --color-turquoise-dark: #2e7d4f;
+  --color-sand: #f4ecdc;
+  --color-sand-light: #faf6ec;
+  --color-sand-dark: #e3d5b4;
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-display);
+  --font-poppins: var(--font-poppins);
+  --font-inter: var(--font-inter);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #ffffff;
+  color: var(--color-navy);
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display), Georgia, serif;
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: var(--color-navy);
+  color: white;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-ocean);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+
+/* Home "experience" gallery: the track holds two copies of the photos and slides by half its width. */
+.marquee-track {
+  animation: marquee-slide 40s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+@keyframes marquee-slide {
+  to {
+    transform: translateX(calc(-50% - 0.625rem));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* Mobile nav drawer slides in from the right. */
+.drawer-in {
+  animation: drawer-in 280ms ease-out;
+}
+@keyframes drawer-in {
+  from {
+    transform: translateX(100%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .drawer-in {
+    animation: none;
+  }
+}
