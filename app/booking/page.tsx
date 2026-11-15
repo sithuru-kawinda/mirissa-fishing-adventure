@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ogImage } from "@/lib/site";
 import { Suspense } from "react";
 import { BookingForm } from "@/components/booking/BookingForm";
 import { PageHero } from "@/components/ui/PageHero";
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
   title: "Book Your Fishing Adventure",
   description: "Request your fishing trip in Mirissa, Sri Lanka. Choose a package, date and group size and our team will be in touch.",
   alternates: { canonical: "/booking" },
-  openGraph: { title: "Book | Mirissa Fishing Adventure", url: "/booking" },
+  openGraph: { title: "Book | Mirissa Fishing Adventure", url: "/booking", images: [ogImage] },
 };
 
 export default function BookingPage() {

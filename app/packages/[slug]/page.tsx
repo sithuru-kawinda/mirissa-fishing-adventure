@@ -12,6 +12,7 @@ import { transfer } from "@/data/extras";
 import { getPackage, packages } from "@/data/packages";
 import { foreignVisitorInfo, getTopics, type TopicId } from "@/data/packageTopics";
 import { extraPassengers, paymentMethods, ratesNote } from "@/data/rates";
+import { ogImage } from "@/lib/site";
 import { packagePrice } from "@/lib/utils";
 import type { FishingPackage } from "@/types";
 
@@ -107,7 +108,7 @@ export async function generateMetadata({ params }: PageProps<"/packages/[slug]">
     title: pkg.name,
     description: pkg.shortDescription,
     alternates: { canonical: `/packages/${pkg.slug}` },
-    openGraph: { title: `${pkg.name} | Mirissa Fishing Adventure`, description: pkg.shortDescription, images: [pkg.image] },
+    openGraph: { title: `${pkg.name} | Mirissa Fishing Adventure`, description: pkg.shortDescription, images: [ogImage] },
   };
 }
 

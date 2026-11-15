@@ -4,7 +4,6 @@ import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { EmailButton } from "@/components/layout/EmailButton";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
-import { images } from "@/lib/images";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -44,7 +43,6 @@ export const metadata: Metadata = {
     locale: "en_US",
     title: `${site.name} | Fishing Trips in Mirissa, Sri Lanka`,
     description: site.description,
-    images: [{ url: images.hero, width: 1800, height: 1200, alt: "Fishing boats off the coast of Mirissa" }],
   },
   twitter: { card: "summary_large_image" },
 };

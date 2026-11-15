@@ -36,6 +36,14 @@ export const site = {
   contactEndpoint: process.env.NEXT_PUBLIC_CONTACT_ENDPOINT ?? "/api/contact",
 } as const;
 
+/** Social-sharing (Open Graph) image: the file is `app/opengraph-image.jpg`. Pages that set their own `openGraph` must include it. */
+export const ogImage = {
+  url: "/opengraph-image.jpg",
+  width: 1200,
+  height: 630,
+  alt: "Mirissa Fishing Adventure: ocean fishing trips from Mirissa, Sri Lanka",
+};
+
 export const navItems: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "Packages", href: "/packages" },

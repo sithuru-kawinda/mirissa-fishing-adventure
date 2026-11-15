@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ogImage } from "@/lib/site";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { ContactInfo } from "@/components/contact/ContactInfo";
 import { PageHero } from "@/components/ui/PageHero";
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
   title: "Contact Us",
   description: "Contact Mirissa Fishing Adventure by phone, WhatsApp, email or our enquiry form to plan your fishing trip in Mirissa, Sri Lanka.",
   alternates: { canonical: "/contact" },
-  openGraph: { title: "Contact | Mirissa Fishing Adventure", url: "/contact" },
+  openGraph: { title: "Contact | Mirissa Fishing Adventure", url: "/contact", images: [ogImage] },
 };
 
 export default function ContactPage() {

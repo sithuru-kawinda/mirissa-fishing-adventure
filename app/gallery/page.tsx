@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ogImage } from "@/lib/site";
 import { AutoPlayVideo } from "@/components/gallery/AutoPlayVideo";
 import { BookingCta } from "@/components/ui/BookingCta";
 import { PageHero } from "@/components/ui/PageHero";
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
   title: "Gallery",
   description: "Photos from fishing trips off Mirissa, Sri Lanka: sunrise departures, open ocean, boats and the catch.",
   alternates: { canonical: "/gallery" },
-  openGraph: { title: "Gallery | Mirissa Fishing Adventure", url: "/gallery" },
+  openGraph: { title: "Gallery | Mirissa Fishing Adventure", url: "/gallery", images: [ogImage] },
 };
 
 function GalleryColumns({ items, count, className }: { items: GalleryItem[]; count: number; className: string }) {

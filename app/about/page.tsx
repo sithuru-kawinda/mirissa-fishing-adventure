@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ogImage } from "@/lib/site";
 import { Anchor, HeartHandshake, Sunrise, Telescope } from "lucide-react";
 import { BookingCta } from "@/components/ui/BookingCta";
 import { PageHero } from "@/components/ui/PageHero";
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
   description:
     "Learn about Mirissa Fishing Adventure: our story, mission and commitment to unforgettable, safe and friendly fishing trips on Sri Lanka's southern coast.",
   alternates: { canonical: "/about" },
-  openGraph: { title: "About Mirissa Fishing Adventure", url: "/about" },
+  openGraph: { title: "About Mirissa Fishing Adventure", url: "/about", images: [ogImage] },
 };
 
 const pillars = [

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ogImage } from "@/lib/site";
 import { FaqExplorer } from "@/components/faq/FaqExplorer";
 import { BookingCta } from "@/components/ui/BookingCta";
 import { PageHero } from "@/components/ui/PageHero";
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
   title: "FAQ",
   description: "Answers to common questions about fishing trips in Mirissa, Sri Lanka: booking, what to bring, beginners, weather and private trips.",
   alternates: { canonical: "/faq" },
-  openGraph: { title: "FAQ | Mirissa Fishing Adventure", url: "/faq" },
+  openGraph: { title: "FAQ | Mirissa Fishing Adventure", url: "/faq", images: [ogImage] },
 };
 
 export default function FaqPage() {

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ogImage } from "@/lib/site";
 import { TeamCard } from "@/components/team/TeamCard";
 import { BookingCta } from "@/components/ui/BookingCta";
 import { PageHero } from "@/components/ui/PageHero";
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
   title: "Our Team",
   description: "Meet the friendly, experienced crew behind Mirissa Fishing Adventure, your hosts on the water in Sri Lanka.",
   alternates: { canonical: "/team" },
-  openGraph: { title: "Our Team | Mirissa Fishing Adventure", url: "/team" },
+  openGraph: { title: "Our Team | Mirissa Fishing Adventure", url: "/team", images: [ogImage] },
 };
 
 export default function TeamPage() {
