@@ -7,6 +7,7 @@ import { useState, type ChangeEvent, type FormEvent } from "react";
 import { Button } from "@/components/ui/Button";
 import { Field, inputClass } from "@/components/ui/Field";
 import { FormFeedback } from "@/components/ui/FormFeedback";
+import { SuccessModal } from "@/components/ui/SuccessModal";
 import { packages } from "@/data/packages";
 import { submitForm, todayISO, validateBooking, type BookingValues, type Errors } from "@/lib/forms";
 import { site } from "@/lib/site";
@@ -43,6 +44,7 @@ export function BookingForm() {
   const [values, setValues] = useState(initial);
   const [errors, setErrors] = useState<Errors<BookingValues>>({});
   const [status, setStatus] = useState<FormStatus>({ state: "idle" });
+  const [success, setSuccess] = useState<{ email: string; packageName: string } | null>(null);
 
   const onChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -71,7 +73,10 @@ export function BookingForm() {
       packageName: packages.find((p) => p.slug === values.packageSlug)?.name,
     });
     setStatus(result);
-    if (result.state === "sent") setValues(initial);
+    if (result.state === "sent") {
+      setSuccess({ email: values.email, packageName: packages.find((p) => p.slug === values.packageSlug)?.name ?? "" });
+      setValues(initial);
+    }
   };
 
   const pkgName = packages.find((p) => p.slug === values.packageSlug)?.name ?? "(not selected)";
@@ -179,7 +184,7 @@ export function BookingForm() {
         <textarea rows={4} placeholder="Anything else we should know?" {...field("requests")} />
       </Field>
       <p className="col-span-full text-sm text-navy/60">
-        This is a booking request, not a confirmed reservation. Your trip is confirmed only once our team replies to you.
+        Your booking is confirmed as soon as you submit it, and a confirmation email is sent to you.
       </p>
       <div className="col-span-full">
         <Button type="submit" size="lg" disabled={status.state === "submitting"} className="w-full sm:w-auto">
@@ -195,8 +200,17 @@ export function BookingForm() {
         </Button>
       </div>
       <div className="col-span-full empty:hidden">
-        <FormFeedback status={status} summary={summary} subject={`Booking request – ${pkgName}`} />
+        {status.state !== "sent" && <FormFeedback status={status} summary={summary} subject={`Booking request – ${pkgName}`} />}
       </div>
+      <SuccessModal
+        open={success !== null}
+        onClose={() => {
+          setSuccess(null);
+          setStatus({ state: "idle" });
+        }}
+        title="Booking Successful!"
+        message={`Your booking${success?.packageName ? ` for ${success.packageName}` : ""} has been successfully confirmed. A confirmation email is on its way to ${success?.email}.`}
+      />
     </form>
   );
 }

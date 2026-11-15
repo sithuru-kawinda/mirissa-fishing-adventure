@@ -35,7 +35,7 @@ export function FaqExplorer({ items }: { items: Faq[] }) {
 
   return (
     <div className="grid grid-cols-1 gap-5 font-sans lg:grid-cols-[18rem_minmax(0,1fr)] lg:gap-8">
-      <aside className="top-24 z-10 h-fit min-w-0 rounded-3xl border border-navy/10 bg-white p-3 shadow-sm max-lg:sticky sm:p-4 lg:sticky lg:top-28 lg:p-5">
+      <aside className="top-28 z-10 hidden h-fit min-w-0 rounded-3xl border border-navy/10 bg-white p-5 shadow-sm lg:sticky lg:block">
         <h2 className="mb-3 hidden !font-sans text-xl font-semibold lg:block">Categories</h2>
         <ul className="flex gap-2 overflow-x-auto lg:flex-col lg:overflow-visible">
           {categories.map((c) => (

@@ -121,17 +121,17 @@ export async function POST(request: Request) {
       from: `"${site.name}" <${user}>`,
       to: v.email,
       replyTo: site.contact.email,
-      subject: `We received your booking request – ${site.name}`,
+      subject: `Your booking is confirmed – ${site.name}`,
       text: `Hi ${v.name},
 
-Thank you for booking with ${site.name}! We have received your request:
+Thank you for booking with ${site.name}! Your booking has been successfully confirmed. Here are your details:
 
 ${plain(customerRows)}
 
-This is a booking request, not yet a confirmed reservation. Our team will contact you shortly to confirm.
+We look forward to welcoming you on board!
 
 Questions? Email ${site.contact.email} or WhatsApp ${site.contact.phone}.`,
-      html: `<p>Hi ${esc(v.name)},</p><p>Thank you for booking with <strong>${esc(site.name)}</strong>! We have received your request:</p>${table(customerRows)}<p>This is a booking request, not yet a confirmed reservation. Our team will contact you shortly to confirm.</p><p>Questions? Email <a href="mailto:${site.contact.email}">${site.contact.email}</a> or WhatsApp ${esc(site.contact.phone)}.</p>`,
+      html: `<p>Hi ${esc(v.name)},</p><p>Thank you for booking with <strong>${esc(site.name)}</strong>! Your booking has been <strong>successfully confirmed</strong>. Here are your details:</p>${table(customerRows)}<p>We look forward to welcoming you on board!</p><p>Questions? Email <a href="mailto:${site.contact.email}">${site.contact.email}</a> or WhatsApp ${esc(site.contact.phone)}.</p>`,
     });
   } catch (err) {
     console.error("Customer confirmation email failed:", err);
