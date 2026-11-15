@@ -8,8 +8,8 @@ export function TeamPreview() {
   return (
     <Section>
       <SectionHeading
-        eyebrow="Our team"
-        title="The people behind your day at sea"
+        eyebrow="Our Team"
+        title="The People Behind Your Day at Sea"
         description="Meet the crew who'll welcome you aboard."
       />
       <ul className="flex flex-wrap justify-center gap-6">

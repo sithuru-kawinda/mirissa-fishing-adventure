@@ -16,19 +16,19 @@ export default function ContactPage() {
     <>
       <PageHero
         eyebrow="Contact"
-        title="Let's plan your day on the water"
+        title="Let's Plan Your Day on the Water"
         description="Questions about trips, dates or groups? Send us a message and we'll help."
         image="/contact-hero.png"
         alt="A fishing boat in the turquoise bay at Mirissa beach, framed by palm trees"
       />
-      <Section tone="sand">
-        <div className="grid gap-10 lg:grid-cols-[1fr_1.15fr] lg:gap-14">
+      <Section tone="sand" className="!py-10 sm:!py-12">
+        <div className="grid gap-10 lg:grid-cols-[1fr_1.15fr] lg:gap-10">
           <div className="flex flex-col">
-            <h2 className="mb-8 text-3xl font-semibold">Get in touch</h2>
+            <h2 className="mb-5 text-2xl font-semibold">Get in touch</h2>
             <div className="flex flex-1 flex-col [&>*]:flex-1"><ContactInfo /></div>
           </div>
           <div className="flex flex-col">
-            <h2 className="mb-8 text-3xl font-semibold">Send us a message</h2>
+            <h2 className="mb-5 text-2xl font-semibold">Send us a message</h2>
             <div className="flex flex-1 flex-col [&>*]:flex-1"><ContactForm /></div>
           </div>
         </div>

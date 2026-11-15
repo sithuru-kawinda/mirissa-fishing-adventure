@@ -58,28 +58,36 @@ export function getGalleryItems(): GalleryItem[] {
   return Array.from({ length: total }, (_, i) => (slots.has(i) ? mixedVideos[v++] : photos[p++]));
 }
 
-const TOUCHING = [1, 2, 4];
-
-/** Picks `count` random positions out of `total` where no two positions are touching distances apart. */
+/**
+ * Picks `count` random positions out of `total` where no two are 1, 2 or 4 places apart. Positions are chosen left
+ * to right, so every gap is 3 or at least 5 (which also rules out any non-adjacent pair being too close). A gap is
+ * only taken if the remaining videos still fit at the minimum gap of 3, so the search finishes immediately.
+ */
 function placeVideos(count: number, total: number, rand: () => number): Set<number> {
+  const MIN_GAP = 3;
+  const maxGap = Math.ceil((2 * total) / Math.max(count, 1)); // keeps videos spread across the page
   const chosen: number[] = [];
-  const place = (): boolean => {
+  const place = (last: number): boolean => {
     if (chosen.length === count) return true;
-    const open = Array.from({ length: total }, (_, i) => i).filter(
-      (i) => !chosen.includes(i) && chosen.every((c) => !TOUCHING.includes(Math.abs(c - i))),
-    );
-    for (let k = open.length - 1; k > 0; k--) {
-      const j = Math.floor(rand() * (k + 1));
-      [open[k], open[j]] = [open[j], open[k]];
+    const room = MIN_GAP * (count - chosen.length - 1); // space the later videos still need after this one
+    const first = last < 0 ? 0 : last + MIN_GAP;
+    const candidates: number[] = [];
+    for (let i = first; i <= Math.min(total - 1 - room, last < 0 ? maxGap : last + maxGap); i++) {
+      if (last >= 0 && i - last === 4) continue;
+      candidates.push(i);
     }
-    for (const i of open.slice(0, 6)) {
+    for (let k = candidates.length - 1; k > 0; k--) {
+      const j = Math.floor(rand() * (k + 1));
+      [candidates[k], candidates[j]] = [candidates[j], candidates[k]];
+    }
+    for (const i of candidates) {
       chosen.push(i);
-      if (place()) return true;
+      if (place(i)) return true;
       chosen.pop();
     }
     return false;
   };
   // If there are too many videos to keep apart, fall back to evenly spread positions.
-  if (!place()) return new Set(Array.from({ length: count }, (_, k) => Math.floor(((k + 0.5) * total) / count)));
+  if (!place(-1)) return new Set(Array.from({ length: count }, (_, k) => Math.floor(((k + 0.5) * total) / count)));
   return new Set(chosen);
 }

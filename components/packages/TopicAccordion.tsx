@@ -52,8 +52,8 @@ export function TopicAccordion({ items }: { items: Item[] }) {
                 aria-expanded={isOpen}
                 aria-controls={`${item.id}-panel`}
                 className={cn(
-                  "flex w-full items-center justify-between gap-4 px-6 py-5 text-left text-lg font-semibold text-ocean transition-colors hover:bg-sand-light",
-                  isOpen && "bg-ocean text-white hover:bg-ocean",
+                  "flex w-full items-center justify-between gap-4 px-6 py-5 text-left text-lg font-semibold transition-colors",
+                  isOpen ? "bg-ocean text-white hover:bg-navy" : "text-ocean hover:bg-sand hover:text-navy",
                 )}
               >
                 {item.label}

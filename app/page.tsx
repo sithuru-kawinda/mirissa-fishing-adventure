@@ -21,8 +21,8 @@ export default function Home() {
       <Intro />
       <FeaturedPackages />
       <TargetSpecies />
-      <WhyChooseUs />
       <ExperienceGallery />
+      <WhyChooseUs />
       <Testimonials />
       <BookingCta />
     </>

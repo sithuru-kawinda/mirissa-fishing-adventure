@@ -9,6 +9,14 @@ export type FishingPackage = {
   duration: string;
   /** Leave undefined until real pricing is supplied; UI shows "Price on request". */
   price?: { amount: number; currency: string; unit?: string };
+  /** Set to false for add-on packages that can't be booked on their own (no booking buttons, not accepted by the booking form). */
+  bookable?: boolean;
+  /** Shown instead of a price, e.g. "Free with any other booking". */
+  priceLabel?: string;
+  /** Shown at the top of the Payments section, e.g. when the package has nothing to pay. */
+  paymentNote?: string;
+  /** Short note under the price. Falls back to the general fishing rates note. */
+  priceNote?: string;
   highlights: string[];
   included: string[];
   featured?: boolean;
@@ -27,7 +35,7 @@ export type TeamMember = {
   image?: string;
 };
 
-export type Faq = { question: string; answer: string };
+export type Faq = { question: string; answer: string; category: string };
 
 export type Testimonial = {
   name: string;

@@ -11,6 +11,7 @@ export function Field({
   required,
   children,
   className,
+  labelClassName,
 }: {
   id: string;
   label: string;
@@ -18,10 +19,11 @@ export function Field({
   required?: boolean;
   children: ReactNode;
   className?: string;
+  labelClassName?: string;
 }) {
   return (
     <div className={className}>
-      <label htmlFor={id} className="mb-2 block text-sm font-semibold">
+      <label htmlFor={id} className={cn("mb-2 block text-sm font-semibold", labelClassName)}>
         {label}
         {required && <span className="text-red-600" aria-hidden> *</span>}
       </label>

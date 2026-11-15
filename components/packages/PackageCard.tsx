@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ButtonLink } from "@/components/ui/Button";
 import { SafeImage } from "@/components/ui/SafeImage";
 import { getTopics } from "@/data/packageTopics";
-import { formatPrice } from "@/lib/utils";
+import { packagePrice } from "@/lib/utils";
 import type { FishingPackage } from "@/types";
 
 export function PackageCard({ pkg }: { pkg: FishingPackage }) {
@@ -38,14 +38,16 @@ export function PackageCard({ pkg }: { pkg: FishingPackage }) {
           ))}
         </ul>
         <div className="mt-auto pt-6">
-          <p className="mb-4 border-t border-navy/10 pt-5 text-lg font-semibold text-ocean">{formatPrice(pkg.price)}</p>
-          <div className="grid grid-cols-2 gap-3">
+          <p className="mb-4 border-t border-navy/10 pt-5 text-lg font-semibold text-ocean">{packagePrice(pkg)}</p>
+          <div className={pkg.bookable === false ? "grid gap-3" : "grid grid-cols-2 gap-3"}>
             <ButtonLink href={`/packages/${pkg.slug}`} variant="goldOutline" size="sm">
               View Details
             </ButtonLink>
-            <ButtonLink href={`/packages/${pkg.slug}#book`} variant="forest" size="sm">
-              Book Now
-            </ButtonLink>
+            {pkg.bookable !== false && (
+              <ButtonLink href={`/packages/${pkg.slug}#book`} variant="forest" size="sm">
+                Book Now
+              </ButtonLink>
+            )}
           </div>
         </div>
       </div>

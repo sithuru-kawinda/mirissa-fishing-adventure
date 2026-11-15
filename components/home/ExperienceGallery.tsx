@@ -15,11 +15,12 @@ const tiles = [
 
 export function ExperienceGallery() {
   return (
-    <section className="bg-sand-light py-16 sm:py-24 lg:py-28">
+    <section className="bg-navy py-16 text-white sm:py-24 lg:py-28">
       <Container>
         <SectionHeading
-          eyebrow="The experience"
-          title="Moments from the water"
+          invert
+          eyebrow="The Experience"
+          title="Moments from the Water"
           description="Sunrise departures, open horizons and the quiet thrill of a line going taut."
         />
       </Container>
@@ -42,7 +43,7 @@ export function ExperienceGallery() {
         </div>
       </div>
       <Container className="mt-4 text-center">
-        <ButtonLink href="/gallery" variant="outline">
+        <ButtonLink href="/gallery" variant="light">
           View Full Gallery
         </ButtonLink>
       </Container>

@@ -7,7 +7,7 @@ import { faqs } from "@/data/faqs";
 export function FaqPreview() {
   return (
     <Section>
-      <SectionHeading eyebrow="FAQ" title="Good questions, honest answers" />
+      <SectionHeading eyebrow="FAQ" title="Good Questions, Honest Answers" />
       <Reveal className="mx-auto max-w-3xl">
         <Accordion items={faqs.slice(0, 4)} />
         <div className="mt-10 text-center">

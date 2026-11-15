@@ -18,7 +18,7 @@ const commons = (file: string) => `https://commons.wikimedia.org/wiki/File:${enc
 
 export const speciesGroups: SpeciesGroup[] = [
   {
-    title: "Big game and trolling fish",
+    title: "Big Game and Trolling Fish",
     tag: "Deep sea",
     description: "The main targets on our deep-sea trolling trips, such as the Full-Day Deep-Sea Sport Fishing Expedition.",
     fish: [
@@ -60,7 +60,7 @@ export const speciesGroups: SpeciesGroup[] = [
     ],
   },
   {
-    title: "Reef and bottom fish",
+    title: "Reef and Bottom Fish",
     tag: "Coral reef",
     description: "Caught on shorter trips around the coral reefs, such as the Half-Day Shore and Reef Fishing Package.",
     fish: [

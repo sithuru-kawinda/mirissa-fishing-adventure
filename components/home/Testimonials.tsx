@@ -5,7 +5,7 @@ import { testimonials } from "@/data/testimonials";
 export function Testimonials() {
   return (
     <Section>
-      <SectionHeading eyebrow="Guest stories" title="What our guests say" />
+      <SectionHeading eyebrow="Guest Stories" title="What Our Guests Say" />
       <ReviewCarousel items={testimonials} />
     </Section>
   );

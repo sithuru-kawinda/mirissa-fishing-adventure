@@ -31,15 +31,17 @@ export function SectionHeading({
   description,
   align = "center",
   invert,
+  className,
 }: {
   eyebrow?: string;
   title: string;
   description?: string;
   align?: "center" | "left";
   invert?: boolean;
+  className?: string;
 }) {
   return (
-    <Reveal className={cn("mb-10 max-w-2xl sm:mb-16", align === "center" && "mx-auto text-center")}>
+    <Reveal className={cn("mb-10 max-w-2xl sm:mb-16", align === "center" && "mx-auto text-center", className)}>
       {eyebrow && (
         <p
           className={cn(

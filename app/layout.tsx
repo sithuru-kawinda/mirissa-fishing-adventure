@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display, Poppins } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
+import { EmailButton } from "@/components/layout/EmailButton";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { images } from "@/lib/images";
 import { site } from "@/lib/site";
@@ -68,6 +69,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </main>
         <Footer />
         <WhatsAppButton />
+        <EmailButton />
       </body>
     </html>
   );

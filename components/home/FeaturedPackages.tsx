@@ -7,7 +7,7 @@ export function FeaturedPackages() {
   return (
     <Section>
       <SectionHeading
-        eyebrow="Featured packages"
+        eyebrow="Featured Packages"
         title="Choose Your Ocean Adventure"
         description="Pick the trip that suits you. Every package is led by our experienced local crew."
       />

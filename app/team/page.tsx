@@ -17,16 +17,16 @@ export default function TeamPage() {
   return (
     <>
       <PageHero
-        eyebrow="Our team"
-        title="Meet your crew"
+        eyebrow="Our Team"
+        title="Meet Your Crew"
         description="Local people, local knowledge and a shared love of the ocean."
         image="/team/team-hero-reel.png"
         alt="Hands gripping a fishing rod and gold reel at sunset over the sea"
       />
       <Section>
         <SectionHeading
-          eyebrow="The people"
-          title="Hosts who know these waters"
+          eyebrow="The People"
+          title="Hosts Who Know These Waters"
           description="From the first message to the last cast, our team is here to make your day safe, relaxed and memorable."
         />
         {team.length ? (
@@ -43,7 +43,7 @@ export default function TeamPage() {
           <p className="text-center text-navy/70">Our team profiles are coming soon.</p>
         )}
       </Section>
-      <BookingCta title="Come fishing with us" />
+      <BookingCta title="Come Fishing with Us" />
     </>
   );
 }

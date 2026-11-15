@@ -35,8 +35,8 @@ export function TargetSpecies({ tone = "sand" }: { tone?: "white" | "sand" }) {
   return (
     <Section tone={tone}>
       <SectionHeading
-        eyebrow="Target species"
-        title="Fish you can catch off Mirissa"
+        eyebrow="Target Species"
+        title="Fish You Can Catch Off Mirissa"
         description="On our deep-sea trolling and reef fishing trips you have the chance to land these valuable, hard-fighting species."
       />
       <div className="space-y-16">

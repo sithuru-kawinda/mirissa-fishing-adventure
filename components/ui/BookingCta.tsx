@@ -20,7 +20,7 @@ export function BookingCta({
           <h2 className="text-2xl font-semibold leading-tight min-[400px]:text-3xl sm:text-5xl">{title}</h2>
           <p className="mt-4 text-base text-white/80 sm:mt-5 sm:text-lg">{text}</p>
           <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:mt-9 sm:flex-row sm:gap-4">
-            <ButtonLink href="/booking" size="lg">
+            <ButtonLink href="/packages" size="lg">
               Book Your Trip
             </ButtonLink>
             <ButtonLink href="/contact" variant="light" size="lg">

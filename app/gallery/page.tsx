@@ -45,7 +45,7 @@ export default function GalleryPage() {
     <>
       <PageHero
         eyebrow="Gallery"
-        title="Moments from the water"
+        title="Moments from the Water"
         description="Sunrise departures, open horizons and the quiet thrill of a line going taut."
         image="/gallery-hero.png"
         alt="Three anglers relaxing on the stern of a fishing boat with rods set"

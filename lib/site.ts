@@ -16,7 +16,7 @@ export const site = {
     // TODO: replace with real details
     phone: "+94 77 529 2035",
     whatsapp: "94775292035", // digits only, international format, no "+"
-    email: "hello@example.com",
+    email: "mirissafishingadventure@gmail.com",
     address: "04 Thappawatta Road, Mirissa 81740, Sri Lanka",
     hours: "Daily, hours to be confirmed",
     /** Paste a Google Maps embed URL (Share → Embed a map → src) to show a live map. */
@@ -32,8 +32,8 @@ export const site = {
    * Optional backend. If set, forms POST JSON here. If empty, forms run in
    * local mode and tell the visitor nothing was sent.
    */
-  bookingEndpoint: process.env.NEXT_PUBLIC_BOOKING_ENDPOINT ?? "",
-  contactEndpoint: process.env.NEXT_PUBLIC_CONTACT_ENDPOINT ?? "",
+  bookingEndpoint: process.env.NEXT_PUBLIC_BOOKING_ENDPOINT ?? "/api/booking",
+  contactEndpoint: process.env.NEXT_PUBLIC_CONTACT_ENDPOINT ?? "/api/contact",
 } as const;
 
 export const navItems: NavItem[] = [

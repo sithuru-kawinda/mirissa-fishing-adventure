@@ -97,6 +97,39 @@ export const packages: FishingPackage[] = [
     ],
     featured: true,
   },
+  {
+    slug: "snorkeling-with-turtles",
+    name: "Snorkeling with Turtles",
+    shortDescription: "A relaxed, family-friendly snorkel out to a turtle feeding site just off Mirissa. Free with any other booking.",
+    description:
+      "A gentle morning snorkel to a turtle feeding site near Mirissa, suitable for families. Life jackets are provided, so non-swimmers can join too. Your guide keeps a respectful distance so you can watch the turtles without disturbing them.",
+    image: images.reef,
+    duration: "About 3–3.5 hours (7:30 – 8:00 AM start, back by around 11:00 AM)",
+    bookable: false,
+    priceLabel: "Free with any other booking",
+    paymentNote:
+      "There is nothing to pay for this experience. It is free when you book any other package, and your main booking is paid in the usual way:",
+    priceNote: "Add it at no extra cost when you book any other package. Includes snorkel mask, fins and life jacket, an experienced guide, drinking water and fruit or biscuits.",
+    highlights: [
+      "Free with any other booking",
+      "Snorkel at a turtle feeding site, from the boat or from the beach",
+      "Family-friendly, and non-swimmers can join with a life jacket",
+      "Free hotel pick-up and drop-off from Mirissa and nearby areas",
+    ],
+    included: [
+      "Snorkel mask, fins and life jacket",
+      "An experienced snorkelling guide",
+      "Drinking water, fruit and biscuits",
+      "GoPro underwater photos and video (on some packages)",
+    ],
+    tourDetails: [
+      { label: "Duration", value: "About 3–3.5 hours" },
+      { label: "Departure", value: "7:30 – 8:00 AM, returning by around 11:00 AM" },
+      { label: "Activity", value: "Snorkelling at a turtle feeding site" },
+      { label: "What to bring", value: "Swimwear, towel, reef-safe sunscreen, sunglasses, a change of clothes and a dry bag" },
+      { label: "Turtle safety", value: "Never touch or ride the turtles, and keep 1–2 metres away" },
+    ],
+  },
 ];
 
 export const getPackage = (slug: string) => packages.find((p) => p.slug === slug);

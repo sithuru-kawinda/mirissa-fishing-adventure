@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { PackageGrid } from "@/components/packages/PackageGrid";
 import { TargetSpecies } from "@/components/home/TargetSpecies";
-import { AddOns, BookingPolicy, Transfers } from "@/components/packages/ExtraInfo";
-import { Rates } from "@/components/packages/Rates";
+import { AddOns } from "@/components/packages/ExtraInfo";
 import { BookingCta } from "@/components/ui/BookingCta";
 import { PageHero } from "@/components/ui/PageHero";
 import { Section } from "@/components/ui/Section";
@@ -22,18 +21,15 @@ export default function PackagesPage() {
     <>
       <PageHero
         eyebrow="Packages"
-        title="Fishing packages from Mirissa"
+        title="Fishing Packages from Mirissa"
         description="Find the trip that fits your time, experience and group, then request your date."
         video={heroVideos.packages}
       />
       <Section tone="sand">
         <PackageGrid items={packages} />
       </Section>
-      <Rates />
-      <TargetSpecies />
       <AddOns />
-      <Transfers />
-      <BookingPolicy />
+      <TargetSpecies />
       <BookingCta />
     </>
   );

@@ -16,14 +16,14 @@ export default function BookingPage() {
   return (
     <>
       <PageHero
-        eyebrow="Book now"
-        title="Book your fishing adventure"
+        eyebrow="Book Now"
+        title="Book Your Fishing Adventure"
         description="Tell us what you have in mind and we'll confirm availability with you."
         image={images.goldenShore}
         alt="Sunrise over a calm turquoise sea"
       />
       <Section tone="sand">
-        <div className="mx-auto max-w-3xl">
+        <div className="mx-auto max-w-6xl">
           <Suspense fallback={<div className="h-96 animate-pulse rounded-3xl bg-white" aria-label="Loading booking form" />}>
             <BookingForm />
           </Suspense>

@@ -9,6 +9,9 @@ import { submitForm, validateContact, type ContactValues, type Errors } from "@/
 import { site } from "@/lib/site";
 import type { FormStatus } from "@/types";
 
+// Compact fields: same shared input style, with tighter padding and smaller text.
+const fieldClass = inputClass.replace("px-4 py-3.5 text-base", "px-3 py-2.5 text-sm");
+
 const empty: ContactValues = { name: "", email: "", phone: "", subject: "", message: "" };
 
 export function ContactForm() {
@@ -45,12 +48,12 @@ export function ContactForm() {
     onChange,
     "aria-invalid": errors[id] ? true : undefined,
     "aria-describedby": errors[id] ? `${id}-error` : undefined,
-    className: inputClass,
+    className: fieldClass,
   });
 
   return (
-    <form onSubmit={onSubmit} noValidate className="flex h-full flex-col gap-5 rounded-3xl border border-navy/10 bg-white p-6 shadow-xl shadow-navy/5 sm:p-10">
-      <div className="grid gap-5 sm:grid-cols-2">
+    <form onSubmit={onSubmit} noValidate className="flex h-full flex-col gap-3.5 rounded-3xl border border-navy/10 bg-white p-5 shadow-xl shadow-navy/5 sm:p-6">
+      <div className="grid gap-3.5 sm:grid-cols-2">
         <Field id="name" label="Full Name" required error={errors.name}>
           <input type="text" autoComplete="name" placeholder="Your full name" {...field("name")} />
         </Field>
@@ -65,9 +68,9 @@ export function ContactForm() {
         </Field>
       </div>
       <Field id="message" label="Message" required error={errors.message} className="flex flex-1 flex-col">
-        <textarea rows={5} placeholder="Tell us about your trip…" {...field("message")} className={`${inputClass} min-h-32 flex-1 resize-none`} />
+        <textarea rows={3} placeholder="Tell us about your trip…" {...field("message")} className={`${fieldClass} min-h-20 flex-1 resize-none`} />
       </Field>
-      <Button type="submit" size="lg" disabled={status.state === "submitting"} className="w-full sm:w-auto">
+      <Button type="submit" size="md" disabled={status.state === "submitting"} className="w-full sm:w-auto">
         {status.state === "submitting" ? (
           <>
             <Loader2 className="h-5 w-5 animate-spin" aria-hidden /> Sending…

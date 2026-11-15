@@ -14,38 +14,38 @@ const items = [
 export function ContactInfo() {
   return (
     <div className="flex h-full flex-col">
-      <ul className="space-y-6">
+      <ul className="space-y-3.5">
         {items.map(({ icon: Icon, label, value, href }) => (
-          <li key={label} className="flex gap-4">
-            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-turquoise/15 text-turquoise-dark">
-              <Icon className="h-5 w-5" aria-hidden />
+          <li key={label} className="flex items-center gap-3">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-turquoise/15 text-turquoise-dark">
+              <Icon className="h-4 w-4" aria-hidden />
             </span>
             <div className="min-w-0">
-              <p className="text-sm font-semibold uppercase tracking-wider text-navy/50">{label}</p>
+              <p className="text-xs font-semibold uppercase tracking-wider text-navy/50">{label}</p>
               {href ? (
                 <a
                   href={href}
                   {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className="break-words text-base font-medium transition-colors hover:text-ocean sm:text-lg"
+                  className="break-words text-sm font-medium transition-colors hover:text-ocean sm:text-base"
                 >
                   {value}
                 </a>
               ) : (
-                <p className="text-base font-medium sm:text-lg">{value}</p>
+                <p className="text-sm font-medium sm:text-base">{value}</p>
               )}
             </div>
           </li>
         ))}
       </ul>
 
-      <div className="mt-8 flex min-h-64 sm:mt-10 sm:min-h-72 flex-1 overflow-hidden rounded-3xl border border-navy/10 bg-sand-light">
+      <div className="mt-5 flex min-h-40 sm:min-h-44 flex-1 overflow-hidden rounded-3xl border border-navy/10 bg-sand-light">
         {c.mapEmbedUrl ? (
           <iframe
             title={`Map of ${site.location}`}
             src={c.mapEmbedUrl}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            className="h-full min-h-72 w-full border-0"
+            className="h-full min-h-40 w-full border-0"
           />
         ) : (
           <div className="flex w-full flex-col items-center justify-center gap-3 p-6 text-center">

@@ -12,7 +12,7 @@ import { transfer } from "@/data/extras";
 import { getPackage, packages } from "@/data/packages";
 import { foreignVisitorInfo, getTopics, type TopicId } from "@/data/packageTopics";
 import { extraPassengers, paymentMethods, ratesNote } from "@/data/rates";
-import { formatPrice } from "@/lib/utils";
+import { packagePrice } from "@/lib/utils";
 import type { FishingPackage } from "@/types";
 
 function CheckList({ items }: { items: string[] }) {
@@ -32,15 +32,15 @@ function topicContent(pkg: FishingPackage): Record<TopicId, ReactNode> {
   return {
     price: (
       <div className="font-inter">
-        <p className="text-3xl font-bold text-ocean">{formatPrice(pkg.price)}</p>
+        <p className="text-3xl font-bold text-ocean">{packagePrice(pkg)}</p>
         {pkg.price?.unit?.includes("boat") && (
           <p className="mt-2 text-navy/75">
             Covers up to {extraPassengers.includedGuests} guests. Each additional guest is ${extraPassengers.amount} extra, up to{" "}
             {extraPassengers.maxGuests} guests.
           </p>
         )}
-        {!pkg.price && <p className="mt-2 text-navy/75">Contact us for a quote based on your plans.</p>}
-        <p className="mt-3 text-sm text-navy/60">{ratesNote}</p>
+        {!pkg.price && !pkg.priceLabel && <p className="mt-2 text-navy/75">Contact us for a quote based on your plans.</p>}
+        <p className="mt-3 text-sm text-navy/60">{pkg.priceNote ?? ratesNote}</p>
       </div>
     ),
     included: <CheckList items={pkg.included} />,
@@ -76,6 +76,7 @@ function topicContent(pkg: FishingPackage): Record<TopicId, ReactNode> {
     ),
     payments: (
       <>
+        {pkg.paymentNote && <p className="mb-3 font-semibold text-navy">{pkg.paymentNote}</p>}
         <ul className="space-y-2">
           {paymentMethods.map((m) => (
             <li key={m.title} className="flex items-start gap-3">
@@ -121,7 +122,7 @@ export default async function PackageDetailPage({ params }: PageProps<"/packages
   return (
     <>
       <PageHero
-        eyebrow="Fishing package"
+        eyebrow="Fishing Package"
         title={pkg.name}
         description={pkg.shortDescription}
         image={pkg.image}
@@ -137,6 +138,11 @@ export default async function PackageDetailPage({ params }: PageProps<"/packages
               <MapPin className="h-4 w-4" aria-hidden /> Mirissa, Sri Lanka
             </p>
             <p className="mt-5 text-base leading-relaxed text-navy/75 sm:text-lg">{pkg.description}</p>
+            {pkg.priceLabel && (
+              <p className="mt-4 rounded-2xl border border-[#d4a017]/50 bg-[#d4a017]/10 px-4 py-3 text-sm font-semibold text-navy sm:text-base">
+                Note: {pkg.priceLabel}. Add it to any other package you book with us.
+              </p>
+            )}
 
             <TopicAccordion items={items} />
           </div>
@@ -146,14 +152,16 @@ export default async function PackageDetailPage({ params }: PageProps<"/packages
               <h3 className="text-center text-xl font-bold text-[#14532d]">{pkg.name}</h3>
               <div className="mx-auto mt-4 h-px w-12 bg-[#d4a017]" aria-hidden />
               <p className="mt-5 text-center text-sm font-semibold uppercase tracking-wider text-navy/50">Price</p>
-              <p className="mt-1 text-center text-3xl font-bold text-ocean">{formatPrice(pkg.price)}</p>
+              <p className="mt-1 text-center text-3xl font-bold text-ocean">{packagePrice(pkg)}</p>
               <p className="mt-5 flex items-center justify-center gap-2 text-center text-navy/75">
                 <Clock className="h-5 w-5 shrink-0 text-turquoise-dark" aria-hidden /> {pkg.duration}
               </p>
-              <ButtonLink href={`/booking?package=${pkg.slug}`} variant="forest" size="lg" className="mt-8 w-full">
-                Book This Package
-              </ButtonLink>
-              <ButtonLink href="/contact" variant="outline" className="mt-3 w-full">
+              {pkg.bookable !== false && (
+                <ButtonLink href={`/booking?package=${pkg.slug}`} variant="forest" size="lg" className="mt-8 w-full">
+                  Book This Package
+                </ButtonLink>
+              )}
+              <ButtonLink href="/contact" variant="outline" className={pkg.bookable === false ? "mt-8 w-full" : "mt-3 w-full"}>
                 Ask a Question
               </ButtonLink>
             </div>
