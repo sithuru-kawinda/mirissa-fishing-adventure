@@ -40,7 +40,7 @@ export const speciesGroups: SpeciesGroup[] = [
         name: "Yellowfin Tuna",
         sinhala: "කෙලවල්ලා",
         note: "Very strong, popular with anglers and excellent to eat.",
-        image: "/fish/yellowfin-tuna.jpg",
+        image: "/fish/yellowfin-tuna.png",
         credit: { author: "OAR/National Undersea Research Program (NURP)", license: "Public domain", url: commons("Yellowfin tuna nurp.jpg") },
       },
       {

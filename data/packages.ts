@@ -44,8 +44,8 @@ export const packages: FishingPackage[] = [
       "A deep-sea trip for anglers who want to chase large, hard-fighting big game fish in the waters off Mirissa.",
     description:
       "Made for sport anglers keen to catch large, hard-fighting big game fish in the deep waters off Mirissa. Troll and sport-fish the open ocean with world-class tackle, full safety equipment, refreshments and lunch, and a crew who will help you capture photos and video of your catch.",
-    image: images.crew,
-    imageClass: "object-[50%_35%]",
+    image: "/deep-sea-hero.png",
+    imageClass: "object-[50%_40%]",
     duration: "4–5 hours (6:00 AM – 11:00 AM)",
     price: { amount: 100, currency: "USD", unit: "per person" },
     highlights: [
